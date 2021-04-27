@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  con.query("USE DATABASE finchatbot_db", function (err, result) {
+  con.query("USE finchatbot_db", function (err, result) {
     if (err) throw err;
     console.log("Database accessd");
   });
