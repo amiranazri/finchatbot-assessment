@@ -25,6 +25,7 @@
  */
 
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require("path");
 
 /**
@@ -50,6 +51,12 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
+
+app.post('/example', (req, res) => {
+  res.send(`${req.body.name} ${req.body.email}.`);
+});
+
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 /**
  * Server Activation
