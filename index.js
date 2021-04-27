@@ -53,7 +53,8 @@ app.get("/", (req, res) => {
 });
 
 app.post('/example', (req, res) => {
-  res.send(`${req.body.name} ${req.body.email}.`);
+  res.send('${req.body.name} ${req.body.email}.');
+  console.log('${req.body.name} ${req.body.email}.');
 });
 
 app.use(bodyParser.urlencoded({ extended: true })); 
