@@ -1,16 +1,16 @@
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-  host: "localhost",
-  user: "admin",
+  host: "35.188.180.172",
+  user: "root",
   password: "Banana123!"
 });
 
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  con.query("CREATE DATABASE finchatbot-db", function (err, result) {
+  con.query("USE DATABASE finchatbot_db", function (err, result) {
     if (err) throw err;
-    console.log("Database created");
+    console.log("Database accessd");
   });
 });
