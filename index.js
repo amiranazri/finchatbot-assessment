@@ -1,10 +1,41 @@
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+// index.js
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+/**
+ * Required External Modules
+ */
+
+const express = require("express");
+const path = require("path");
+
+/**
+ * App Variables
+ */
+
+const app = express();
+const port = process.env.PORT || "8000";
+
+/**
+ *  App Configuration
+ */
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+app.use(express.static(path.join(__dirname, "public")));
+
+
+/**
+ * Routes Definitions
+ */
+
+app.get("/", (req, res) => {
+  res.render("index", { title: "Home" });
+});
+
+/**
+ * Server Activation
+ */
+
+app.listen(port, () => {
+  console.log(`Listening to requests on http://localhost:${port}`);
+});
+
