@@ -43,7 +43,6 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 
-
 /**
  * Routes Definitions
  */
@@ -52,12 +51,10 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
-app.post('/example', (req, res) => {
-  res.send('${req.body.name} ${req.body.email}.');
-  console.log('${req.body.name} ${req.body.email}.');
+app.get("/verdi", (req, res) => {
+  res.render("index", { title: "Gugugaga"});
 });
 
-app.use(bodyParser.urlencoded({ extended: true })); 
 
 /**
  * Server Activation
