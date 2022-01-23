@@ -1,1 +1,1 @@
-# finchatbot_assessment
+# Technical Assessment for FinChatBot
